@@ -1,23 +1,93 @@
-// Creating our initial map object:
-// We set the longitude, latitude, and starting zoom level.
-// This gets inserted into the div with an id of "map".
-let myMap = L.map("map", {
-  center: [45.52, -122.67],
-  zoom: 5
+document.addEventListener("DOMContentLoaded", async function () {
+    const dataUrl = "data.json"; // Ensure this file is in the same directory
+
+    try {
+        // Fetch data
+        let response = await fetch(dataUrl);
+        let rawData = await response.json();
+
+        // Exclude "United States" totals
+        let filteredData = rawData.filter(entry => entry.jurisdiction_occurrence !== "United States");
+
+        // Aggregate deaths per year, jurisdiction, and drug type
+        let annualDeaths = {};
+        filteredData.forEach(entry => {
+            let key = `${entry.death_year}-${entry.jurisdiction_occurrence}-${entry.drug_involved}`;
+            if (!annualDeaths[key]) {
+                annualDeaths[key] = {
+                    year: entry.death_year,
+                    jurisdiction: entry.jurisdiction_occurrence,
+                    drug: entry.drug_involved,
+                    deaths: 0
+                };
+            }
+            annualDeaths[key].deaths += entry.drug_overdose_deaths;
+        });
+
+        // Convert object to array
+        let aggregatedData = Object.values(annualDeaths);
+
+        // Get unique drug types
+        let drugTypes = [...new Set(aggregatedData.map(item => item.drug))];
+
+        // Populate dropdown
+        const drugFilter = document.getElementById("drug-filter");
+        drugTypes.forEach(drug => {
+            let option = document.createElement("option");
+            option.value = drug;
+            option.textContent = drug;
+            drugFilter.appendChild(option);
+        });
+
+        // Chart setup
+        const ctx = document.getElementById("overdose-chart").getContext("2d");
+        let chart;
+
+        function updateChart(selectedDrug) {
+            let filtered = aggregatedData.filter(entry => entry.drug === selectedDrug);
+
+            // Group by year
+            let grouped = {};
+            filtered.forEach(entry => {
+                if (!grouped[entry.year]) grouped[entry.year] = {};
+                grouped[entry.year][entry.jurisdiction] = entry.deaths;
+            });
+
+            let years = Object.keys(grouped).sort();
+            let jurisdictions = [...new Set(filtered.map(item => item.jurisdiction))];
+
+            let datasets = jurisdictions.map(jurisdiction => ({
+                label: jurisdiction,
+                data: years.map(year => grouped[year][jurisdiction] || 0),
+                backgroundColor: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.7)`,
+            }));
+
+            if (chart) chart.destroy();
+            chart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: years,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: { title: { display: true, text: "Year" } },
+                        y: { title: { display: true, text: "Overdose Deaths" } }
+                    }
+                }
+            });
+        }
+
+        // Initialize chart with first drug
+        updateChart(drugTypes[0]);
+
+        // Update chart on dropdown change
+        drugFilter.addEventListener("change", function () {
+            updateChart(this.value);
+        });
+
+    } catch (error) {
+        console.error("Error loading data:", error);
+    }
 });
-
-// Adding a tile layer (the background map image) to our map:
-// We use the addTo() method to add objects to our map.
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(myMap);
-
-// Creating a new marker:
-// We pass in some initial options, and then add the marker to the map by using the addTo() method.
-let marker = L.marker([45.52, -122.67], {
-  draggable: true,
-  title: "My First Marker"
-}).addTo(myMap);
-
-// Binding a popup to our marker
-marker.bindPopup("Hello There!");
