@@ -1,54 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title>Basic Map</title>
-
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin="" />
-
-  <!-- Leaflet JavaScript code -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""></script>
-
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<body>
-  <!-- The div where we'll insert our map -->
-  <div id="map"></div>
-
-  <!-- JavaScript file -->
-  <script type="text/javascript" src="logic.js"></script>
-</body>
-
-</html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>What is `this`?</title>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overdose Deaths Visualization</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
 </head>
-
 <body>
-    <button id="button">Click Me</button>
-    <button id="button">Click Me 2</button>
-    <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-    </ul>
-
-    <script src="app.js"></script>
+    <div class="container">
+        <h1>Overdose Deaths by Year, Jurisdiction, and Drug Type (2019-2024)</h1>
+        <div class="form-group">
+            <label for="drug-filter">Select a Drug:</label>
+            <select id="drug-filter" class="form-control"></select>
+        </div>
+        <canvas id="overdose-chart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="logic.js"></script>
 </body>
-
-</html> -->
+</html>
