@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overdose Deaths Visualization</title>
+    <!-- Add Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Add your CSS styles if needed -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .filter-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Overdose Deaths Visualization</h1>
+
+    <div class="filter-container">
+        <label for="drug-filter">Filter by Drug:</label>
+        <select id="drug-filter">
+            <!-- Options will be populated by JavaScript -->
+        </select>
+    </div>
+
+    <canvas id="overdose-chart" width="800" height="400"></canvas>
+
+    <!-- Add your JavaScript files -->
+    <script src="data.js"></script> <!-- Include data.js containing rawData -->
+    <script src="logic1.js"></script> <!-- Include your main script -->
+</body>
+</html>
