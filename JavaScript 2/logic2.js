@@ -72,7 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         y: -0.3,
                         align: 'right'
                     }
-                ]
+                ],
+                responsive: true,  // Make the chart responsive
+                autosize: true  // Auto-resize the chart
             };
 
             Plotly.newPlot('yearly-chart', data, layout);
@@ -106,7 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
                         y: -0.3,
                         align: 'right'
                     }
-                ]
+                ],
+                responsive: true,  // Make the chart responsive
+                autosize: true  // Auto-resize the chart
             };
 
             Plotly.newPlot('cumulative-chart', cumulativeDataPlot, cumulativeLayout);
