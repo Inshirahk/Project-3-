@@ -1,79 +1,64 @@
-# Project-3-
-Data Visualization Track Requirements (75 points)
-Data and Delivery (20 points)
-The dataset contains at least 100 unique records. (5 points)
+Overview
 
-A database is used to house the data (SQL, MongoDB, SQLite, etc.). (5 points)
+This project provides interactive visualizations and analytical tools to explore trends in drug overdose deaths from 2019 to 2024. The visualizations offer insights into temporal trends, substance-specific impacts, and geographic distributions, helping users better understand the changes in overdose death rates over time.
 
-The GitHub repo has a README.md that includes the following: (10 points)
+Features
 
-An overview of the project and its purpose
+1. Visualizations
 
-Instructions on how to use and interact with the project
+Temporal Trends & Substance-Specific Trends:
+-Created by Maryann and Cordette.
+-Implemented a donut chart to display Drug Overdose Deaths by Drug Involved for each year (2019-2024) and an overall donut chart summarizing the entire period.
+-Interactive Features: Hover over the chart to view drug-specific death counts and percentages.
+-Developed an immersive bar graph that visualizes Overdose Deaths by Year, Jurisdiction, and Drug Type, allowing users to filter by drug type and observe regional impacts.
 
-At least one paragraph summarizing efforts for ethical considerations made in the project
+Insights: The data shows an increase in overdose deaths peaking in 2023, followed by a 50% drop in 2024. Additionally, heroin exhibited a steady decline in overdose deaths, unlike other substances.
 
-References for the data source(s)
+2. Usability & Web Implementation
 
-References for any code used that is not your own
+-Developed by Logan and Fitsum using JavaScript.
+-Logan created the main index and HTML structure to integrate the visualizations.
+-Fitsum worked on reformatting data and structuring HTML files to optimize the display of visualizations.
+-The result is a web-based interface that presents the data in three interactive tabs.
 
-Visualizations (25 points)
-A minimum of three unique views present the data. (10 points)
-The visualizations are presented in a clear, digestible manner. (5 points)
-The data story is easy to interpret for users of all levels. (10 points)
-Usability (30 points)
-The script, notebook, or webpage created to showcase data visualizations runs without error. (10 points)
+3. Data Processing & Exporting
 
-A Python or JavaScript library not shown in class is used in the project. (10 points)
+SQL Data Structuring: Tyquese developed an SQL script that refines the database schema by removing unnecessary tables, restructuring data storage, and ensuring consistent column naming.
 
-The project includes some level of user-driven interaction, conforming to one of the following designs: (10 points)
+Data Cleaning & Preparation: Isaiah imported datasets into pandas dataframes, handled missing values, and added a "Region" column to the VSRR dataset. This new column standardized geographic classifications, enhancing regional analysis.
 
-HTML menus, dropdowns, and/or textboxes to display JavaScript-powered visualizations
+4. Geographic Analysis
 
-Flask backend with interactive API routes that serve back Python or JavaScript created plots
+-Developed by Inshirah using cleaned data.
+-Created an interactive map that color-codes states by year, illustrating the regions most affected by drug overdoses over time.
 
-Visualizations created from user-selected filtered data
+5. Presentation
 
-Data Engineering Track Requirements (75 points)
-Database Design (40 points)
-The project uses ETL workflows to ingest data into the database. (10 points)
+PowerPoint Creation: Charles created the PowerPoint presentation for the project, summarizing key insights, data analysis, and visualizations for effective communication.
 
-The original dataset(s) are transformed prior to storing it in the database. (5 points)
 
-A database is used to house the data (SQL, MongoDB, SQLite, etc.). (5 points)
+Technologies Used:
 
-The database has at least two tables (SQL) or collections (NoSQL). (5 points)
+-Python (pandas, numpy, SQL) for data cleaning and structuring.
+-JavaScript (D3.js, HTML, CSS, Leaflet) for interactive visualizations.
+-SQL (PostgreSQL, SQLite, MongoDB) for database management.
+-Plotly for advanced data visualization.
 
-The project documents the choice of the database used and why. (5 points)
 
-The project includes documentation of the ETL workflow with diagrams or ERD. (10 points)
+Contributors:
 
-Data and Delivery (35 points)
-The database contains at least 100 unique records. (5 points)
+Maryann - Data Visualization
 
-The project uses one additional library not covered in class related to data engineering. (10 points)
+Cordette - Data Visualization
 
-The project includes a method for reading data from the database and displaying it for future use, such as: (10 points)
+Logan - JavaScript & Web Development
 
-Pandas DataFrame
+Fitsum - JavaScript & Data Formatting
 
-Flask API with JSON output
+Tyquese - SQL & Database Structuring
 
-The GitHub repo has a README.md that includes the following: (10 points)
+Isaiah - Data Cleaning & Preparation
 
-An overview of the project and its purpose
+Inshirah - Geographic Analysis
 
-Instructions on how to use and interact with the project
-
-At least one paragraph summarizing efforts for ethical considerations made in the project
-
-References for the data source(s)
-
-References for any code used that is not your own
-
-Both Track Requirements
-Group Presentation (25 points)
-All group members speak during the presentation. (5 points)
-The content is relevant to the project. (5 points)
-The presentation maintains audience interest. (5 points)
-Content, transitions, and conclusions flow smoothly within any time restrictions. (10 points)
+Charles - PowerPoint Presentation
