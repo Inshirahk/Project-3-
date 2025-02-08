@@ -23,6 +23,8 @@ Insights: The data shows an increase in overdose deaths peaking in 2023, followe
 
 3. Data Processing & Exporting
 
+Data Import & Structuring: Michel worked on importing data using PostgreSQL, ensuring the data was properly structured and formatted, making it accessible for the rest of the group. By extracting the data efficiently, other team members were able to begin their respective tasks.
+
 SQL Data Structuring: Tyquese developed an SQL script that refines the database schema by removing unnecessary tables, restructuring data storage, and ensuring consistent column naming.
 
 Data Cleaning & Preparation: Isaiah imported datasets into pandas dataframes, handled missing values, and added a "Region" column to the VSRR dataset. This new column standardized geographic classifications, enhancing regional analysis.
@@ -60,5 +62,7 @@ Tyquese - SQL & Database Structuring
 Isaiah - Data Cleaning & Preparation
 
 Inshirah - Geographic Analysis
+
+Michel - Data Import & Structuring
 
 Charles - PowerPoint Presentation
