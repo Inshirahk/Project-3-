@@ -42,7 +42,7 @@ PowerPoint Creation: Charles created the PowerPoint presentation for the project
 Technologies Used:
 
 -Python (pandas, numpy, SQL) for data cleaning and structuring.
--JavaScript (D3.js, HTML, CSS, Leaflet) for interactive visualizations.
+-JavaScript (Chart.js, Plotly.js, Leaflet, HTML, CSS ) for interactive visualizations.
 -SQL (PostgreSQL, SQLite, MongoDB) for database management.
 -Plotly for advanced data visualization.
 
